@@ -11,10 +11,15 @@ services:
       - PARTKEEPR_DATABASE_PASS=partkeepr
       - PARTKEEPR_OKTOPART_APIKEY
     ports:
-      - "80:80"
+      - "6080:80"
     volumes:
       - partkeepr-data:/var/www/html/data
       - partkeepr-web:/var/www/html/web
+    environment:
+      VIRTUAL_HOST: "parts.vanleussen.com"
+      VIRTUAL_PORT: 6080
+      LETSENCRYPT_HOST: "parts.vanleussen.com"
+      LETSENCRYPT_EMAIL: "cert@vanleussen.com"
     depends_on:
       - database
 
