@@ -41,3 +41,8 @@ volumes:
   partkeepr-data:
   partkeepr-web:
   mysql-data:
+
+networks:
+  default:
+    external:
+      name: mm-server-nginx_nginx-proxy
