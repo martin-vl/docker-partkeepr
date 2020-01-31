@@ -2,7 +2,9 @@ version: "3"
 services:
 
   partkeepr:
-    image: mhubig/partkeepr:latest
+    image: mhubig/partkeepr:1.4.0-15
+    container_name: partkeepr
+    restart: always
     environment:
       - PARTKEEPR_DATABASE_HOST=database
       - PARTKEEPR_DATABASE_NAME=partkeepr
@@ -25,6 +27,8 @@ services:
 
   database:
     image: mariadb:10.3
+    container_name: partkeepr-db
+    restart: always
     environment:
       - MYSQL_RANDOM_ROOT_PASSWORD=yes
       - MYSQL_DATABASE=partkeepr
